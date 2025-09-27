@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume - Enoch Andrew Querol</title>
+  <style>
+    /* General */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4ff; /* light navy tint */
+      color: #333;
+      line-height: 1.6;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    /* Container */
+    .resume-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: linear-gradient(135deg, #001f54, #003366);
+      color: white;
+      padding: 30px 25px;
+      animation: slideIn 1s ease-out;
+    }
+    .header h1 {
+      margin-bottom: 6px;
+      font-size: 2rem;
+    }
+    .tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      background: #f5f8ff;
+    }
+    .nav button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      background: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .nav button:hover {
+      background: #dce6f7;
+      transform: scale(1.05);
+    }
+    .nav .active {
+      color: #003366;
+      border-bottom: 3px solid #003366;
+    }
+
+    /* Content */
+    .content {
+      padding: 25px;
+    }
+    .content h2 {
+      margin-bottom: 16px;
+      color: #003366;
+    }
+    .section-content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Columns */
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      border-left: 3px solid #003366;
+      padding-left: 12px;
+    }
+    .timeline-item h4 {
+      margin: 0;
+    }
+    .timeline-item .sub {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    /* Cards */
+    .card {
+      background: #f0f6ff;
+      padding: 14px 18px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      gap: 12px;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      background: #f5f8ff;
+    }
+    .actions button {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .actions .primary {
+      background: #003366;
+      color: white;
+      border: none;
+    }
+    .actions .outline {
+      border: 2px solid #003366;
+      color: #003366;
+      background: none;
+    }
+    .actions .muted {
+      border: 1px solid #ccc;
+      color: #666;
+      background: none;
+    }
+    .actions button:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    .footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Enoch Andrew Querol</h1>
+      <p class="tagline">Full-Stack Developer & Cyber Security Analyst</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+      <button class="active" onclick="showSection('profile')">Profile</button>
+      <button onclick="showSection('experience')">Experience</button>
+      <button onclick="showSection('education')">Education</button>
+      <button onclick="showSection('projects')">Projects</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content" id="content-area">
+      <h2 class="reveal">Profile</h2>
+      <div class="section-content">
+        <p class="reveal">
+          Hi I'm <b>Enoch Andrew Querol</b>, a passionate web developer and also cyber security analyst. Specialized in React,
+          JavaScript, Python, PHP, MySQL, Node.js, and modern web technologies. Excellent problem-solving
+          skills and a commitment to writing clean, maintainable code.
+        </p>
+        <div class="two-columns">
+          <div class="reveal">
+            <h4>Contact Info</h4>
+            <ul>
+              <li>📧 querolenoch@gmail.com</li>
+              <li>📞 (555) 9291446884</li>
+              <li>📍 Polangui, Albay, Bicol</li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <h4>Skills</h4>
+            <ul>
+              <li>React & JavaScript</li>
+              <li>Node.js & Ruby</li>
+              <li>Python & Java</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="actions reveal">
+      <button class="primary">Download PDF</button>
+      <button class="outline" onclick="window.print()">Print Resume</button>
+      <button class="muted">Share Profile</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © 2025 Enoch Andrew Querol • Last updated: September 2025
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const sections = {
+      profile: `
+        <h2 class="reveal">Profile</h2>
+        <div class="section-content">
+          <p class="reveal">
+            Hi I'm <b>Enoch Andrew Querol</b>, a passionate web developer and also cyber security analyst. Specialized in React,
+            JavaScript, Python, PHP, MySQL, Node.js, and modern web technologies. Excellent problem-solving
+            skills and a commitment to writing clean, maintainable code.
+          </p>
+          <div class="two-columns">
+            <div class="reveal">
+              <h4>Contact Info</h4>
+              <ul>
+                <li>📧 querolenoch@gmail.com</li>
+                <li>📞 (555) 9291446884</li>
+                <li>📍 Polangui, Albay, Bicol</li>
+              </ul>
+            </div>
+            <div class="reveal">
+              <h4>Skills</h4>
+              <ul>
+                <li>React & JavaScript</li>
+                <li>Node.js & Ruby</li>
+                <li>Python & Java</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `,
+      experience: `
+        <h2 class="reveal">Experience</h2>
+        <div class="section-content">
+          <div class="timeline-item reveal">
+            <h4>Student Developer</h4>
+            <p class="sub">Web System Inc. • 2025 - Present</p>
+            <ul>
+              <li>Reduced page load times by 40% through optimization</li>
+              <li>Mentored 3 junior developers and conducted code reviews</li>
+            </ul>
+          </div>
+          <div class="timeline-item reveal">
+            <h4>Future Software Engineer / Cyber Security Analyst</h4>
+            <p class="sub">Startup • N/A</p>
+            <ul>
+              <li>Implemented CI/CD pipelines reducing deployment time by 60%</li>
+              <li>Collaborated with UX team to improve user experience metrics</li>
+            </ul>
+          </div>
+        </div>
+      `,
+      education: `
+        <h2 class="reveal">Education</h2>
+        <div class="section-content">
+          <div class="timeline-item reveal">
+            <h4>Bachelor of Science in Information System</h4>
+            <p class="sub">Bicol University • 2024 - Present</p>
+          </div>
+        </div>
+      `,
+      projects: `
+        <h2 class="reveal">Projects</h2>
+        <div class="section-content">
+          <div class="card reveal">
+            <h4>E-commerce Platform</h4>
+            <p>
+              Full-stack app with React, Node.js, and PostgreSQL. Features:
+              authentication, payments, and inventory management.
+            </p>
+          </div>
+          <div class="card reveal">
+            <h4>Task Management App</h4>
+            <p>
+              Real-time collaboration tool with drag-and-drop functionality,
+              built using Socket.io and React.
+            </p>
+          </div>
+        </div>
+      `
+    };
+
+    function showSection(section) {
+      document.getElementById("content-area").innerHTML = sections[section];
+      const buttons = document.querySelectorAll(".nav button");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+      revealOnScroll(); // reapply reveal
+    }
+
+    // Scroll reveal logic
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 120;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+</body>
+</html>
