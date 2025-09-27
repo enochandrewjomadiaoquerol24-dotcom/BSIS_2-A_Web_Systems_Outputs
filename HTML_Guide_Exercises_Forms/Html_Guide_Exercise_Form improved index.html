@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Forms Exercises</title>
+  <style>
+    /* Default (Light) Theme */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background: #f0f2f5;
+      color: #333;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      transition: color 0.5s ease;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      background: #1e1e1e;
+      color: #e0e0e0;
+    }
+    body.dark h1 {
+      color: #f5f5f5;
+    }
+    body.dark form {
+      background: #2c2c2c;
+      color: #eee;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+    }
+    body.dark input, body.dark select, body.dark textarea {
+      background: #3a3a3a;
+      border: 1px solid #555;
+      color: #fff;
+    }
+    body.dark input:focus, body.dark select:focus, body.dark textarea:focus {
+      border-color: #9b59b6;
+      box-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+    }
+    body.dark button {
+      background: #9b59b6;
+    }
+    body.dark button:hover {
+      background: #8e44ad;
+    }
+
+    /* Card Style for Forms */
+    form {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+                  background 0.5s ease, color 0.5s ease;
+    }
+    form:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    /* Input and Labels */
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 500;
+      color: inherit;
+      transition: color 0.5s ease;
+    }
+    input, select, textarea {
+      margin-top: 6px;
+      padding: 10px;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border 0.3s ease, box-shadow 0.3s ease,
+                  background 0.5s ease, color 0.5s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+
+    /* Buttons */
+    button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease,
+                  color 0.5s ease;
+    }
+    button:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* Error Highlight */
+    .error {
+      border: 2px solid #e74c3c !important;
+      background: #fdecea;
+      transition: background 0.5s ease, border 0.5s ease;
+    }
+    body.dark .error {
+      background: #5a2c2c;
+    }
+
+    /* Character Count */
+    .char-count {
+      font-size: 0.85em;
+      color: #555;
+      margin-top: 5px;
+      transition: color 0.5s ease;
+    }
+    body.dark .char-count {
+      color: #bbb;
+    }
+
+    /* Toggle Button */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 14px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, color 0.3s ease;
+      z-index: 1000;
+    }
+    #theme-toggle:hover {
+      background: #2980b9;
+    }
+    body.dark #theme-toggle {
+      background: #9b59b6;
+    }
+    body.dark #theme-toggle:hover {
+      background: #8e44ad;
+    }
+
+    /* Checkbox & Radio Style */
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle">🌙 Dark Mode</button>
+  <h1>HTML Forms Collection</h1>
+
+  <!-- Basic Login Form -->
+  <form>
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" name="username" required>
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Email Input -->
+  <form>
+    <label for="email2">Email:</label>
+    <input type="email" id="email2" placeholder="Enter your email">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Radio & Checkbox -->
+  <form>
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <br>
+    <input type="checkbox" name="subscribe"> Subscribe to newsletter
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Dropdown -->
+  <form>
+    <label for="country">Country:</label>
+    <select id="country">
+      <option value="ph">Philippines</option>
+      <option value="us">United States</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Textarea -->
+  <form>
+    <label for="msg">Message:</label>
+    <textarea id="msg" rows="4"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <!-- HTML Validation -->
+  <form>
+    <input type="text" placeholder="Required field" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- JS Alert on Submit -->
+  <form onsubmit="alert('Form submitted!'); return false;">
+    <input type="text" placeholder="Type something" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Live Character Count -->
+  <form>
+    <label for="bio">Bio:</label>
+    <textarea id="bio" rows="3" maxlength="100"></textarea>
+    <div class="char-count" id="bio-count">0/100</div>
+  </form>
+
+  <!-- Toggle Password -->
+  <form>
+    <input type="password" id="pwd">
+    <label><input type="checkbox" onclick="togglePassword()"> Show Password</label>
+  </form>
+
+  <!-- jQuery Submit Alert -->
+  <form id="jq-submit">
+    <input type="text" placeholder="Type something">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- jQuery Show/Hide Password -->
+  <form>
+    <input type="password" id="jq-pwd">
+    <label><input type="checkbox" id="jq-toggle"> Show Password</label>
+  </form>
+
+  <!-- jQuery Live Character Count -->
+  <form>
+    <label for="jq-bio">Short Bio:</label>
+    <textarea id="jq-bio" rows="3" maxlength="120"></textarea>
+    <div class="char-count" id="jq-bio-count">0/120</div>
+  </form>
+
+  <!-- jQuery Validation with Error Highlight -->
+  <form id="jq-validation">
+    <input type="text" id="jq-name" placeholder="Enter your name">
+    <input type="email" id="jq-email" placeholder="Enter your email">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Registration Form -->
+  <form id="registration">
+    <label for="reg-username">Username:</label>
+    <input type="text" id="reg-username" name="username" required>
+
+    <label for="reg-email">Email:</label>
+    <input type="email" id="reg-email" name="email" required>
+
+    <label for="reg-password">Password:</label>
+    <input type="password" id="reg-password" required>
+    <label><input type="checkbox" onclick="toggleRegPassword()"> Show Password</label>
+
+    <label>Gender:</label>
+    <input type="radio" name="reg-gender" value="male"> Male
+    <input type="radio" name="reg-gender" value="female"> Female
+
+    <label>Interests:</label>
+    <input type="checkbox" value="sports"> Sports
+    <input type="checkbox" value="music"> Music
+    <input type="checkbox" value="tech"> Tech
+
+    <label for="reg-bio">Bio:</label>
+    <textarea id="reg-bio" rows="3" maxlength="150"></textarea>
+    <div class="char-count" id="reg-bio-count">0/150</div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    // Native JS
+    const bio = document.getElementById('bio');
+    const bioCount = document.getElementById('bio-count');
+    bio?.addEventListener('input', () => {
+      bioCount.textContent = bio.value.length + "/100";
+    });
+
+    function togglePassword() {
+      const pwd = document.getElementById("pwd");
+      pwd.type = (pwd.type === "password") ? "text" : "password";
+    }
+
+    const regBio = document.getElementById('reg-bio');
+    const regCount = document.getElementById('reg-bio-count');
+    regBio?.addEventListener('input', () => {
+      regCount.textContent = regBio.value.length + "/150";
+    });
+
+    function toggleRegPassword() {
+      const pwd = document.getElementById("reg-password");
+      pwd.type = (pwd.type === "password") ? "text" : "password";
+    }
+
+    document.getElementById("registration").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Registration Submitted!");
+    });
+
+    // jQuery
+    $(document).ready(function() {
+      $("#jq-submit").on("submit", function(e) {
+        e.preventDefault();
+        alert("Form submitted with jQuery!");
+      });
+
+      $("#jq-toggle").on("change", function() {
+        $("#jq-pwd").attr("type", this.checked ? "text" : "password");
+      });
+
+      $("#jq-bio").on("input", function() {
+        $("#jq-bio-count").text($(this).val().length + "/120");
+      });
+
+      $("#jq-validation").on("submit", function(e) {
+        e.preventDefault();
+        let valid = true;
+        $("#jq-validation input").each(function() {
+          if (!$(this).val()) {
+            $(this).addClass("error");
+            valid = false;
+          } else {
+            $(this).removeClass("error");
+          }
+        });
+        if (valid) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Please fill in all required fields.");
+        }
+      });
+
+      // Theme Toggle
+      $("#theme-toggle").on("click", function() {
+        $("body").toggleClass("dark");
+        if ($("body").hasClass("dark")) {
+          $(this).text("☀️ Light Mode");
+        } else {
+          $(this).text("🌙 Dark Mode");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
