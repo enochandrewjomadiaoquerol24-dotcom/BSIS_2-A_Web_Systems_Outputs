@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Forms Exercises</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f4;
+    }
+    form {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea, button {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .error {
+      border: 2px solid red;
+    }
+    .char-count {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML Forms Collection</h1>
+
+  <!-- Basic Login Form -->
+  <form>
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" name="username" required>
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Email Input -->
+  <form>
+    <label for="email2">Email:</label>
+    <input type="email" id="email2" placeholder="Enter your email">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Radio & Checkbox -->
+  <form>
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <br>
+    <input type="checkbox" name="subscribe"> Subscribe to newsletter
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Dropdown -->
+  <form>
+    <label for="country">Country:</label>
+    <select id="country">
+      <option value="ph">Philippines</option>
+      <option value="us">United States</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Textarea -->
+  <form>
+    <label for="msg">Message:</label>
+    <textarea id="msg" rows="4"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <!-- HTML Validation -->
+  <form>
+    <input type="text" placeholder="Required field" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- JS Alert on Submit -->
+  <form onsubmit="alert('Form submitted!'); return false;">
+    <input type="text" placeholder="Type something" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Live Character Count -->
+  <form>
+    <textarea id="bio" rows="3" maxlength="100"></textarea>
+    <div class="char-count" id="bio-count">0/100</div>
+  </form>
+
+  <!-- Toggle Password -->
+  <form>
+    <input type="password" id="pwd">
+    <input type="checkbox" onclick="togglePassword()"> Show Password
+  </form>
+
+  <!-- jQuery Submit Alert -->
+  <form id="jq-submit">
+    <input type="text" placeholder="Type something">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- jQuery Show/Hide Password -->
+  <form>
+    <input type="password" id="jq-pwd">
+    <input type="checkbox" id="jq-toggle"> Show Password
+  </form>
+
+  <!-- jQuery Live Character Count -->
+  <form>
+    <textarea id="jq-bio" rows="3" maxlength="120"></textarea>
+    <div class="char-count" id="jq-bio-count">0/120</div>
+  </form>
+
+  <!-- jQuery Validation with Error Highlight -->
+  <form id="jq-validation">
+    <input type="text" id="jq-name" placeholder="Enter your name">
+    <input type="email" id="jq-email" placeholder="Enter your email">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Registration Form -->
+  <form id="registration">
+    <label for="reg-username">Username:</label>
+    <input type="text" id="reg-username" name="username" required>
+
+    <label for="reg-email">Email:</label>
+    <input type="email" id="reg-email" name="email" required>
+
+    <label for="reg-password">Password:</label>
+    <input type="password" id="reg-password" required>
+    <input type="checkbox" onclick="toggleRegPassword()"> Show Password
+
+    <label>Gender:</label>
+    <input type="radio" name="reg-gender" value="male"> Male
+    <input type="radio" name="reg-gender" value="female"> Female
+
+    <label>Interests:</label>
+    <input type="checkbox" value="sports"> Sports
+    <input type="checkbox" value="music"> Music
+    <input type="checkbox" value="tech"> Tech
+
+    <label for="reg-bio">Bio:</label>
+    <textarea id="reg-bio" rows="3" maxlength="150"></textarea>
+    <div class="char-count" id="reg-bio-count">0/150</div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    // Native JS Exercises
+    const bio = document.getElementById('bio');
+    const bioCount = document.getElementById('bio-count');
+    bio?.addEventListener('input', () => {
+      bioCount.textContent = bio.value.length + "/100";
+    });
+
+    function togglePassword() {
+      const pwd = document.getElementById("pwd");
+      pwd.type = (pwd.type === "password") ? "text" : "password";
+    }
+
+    const regBio = document.getElementById('reg-bio');
+    const regCount = document.getElementById('reg-bio-count');
+    regBio?.addEventListener('input', () => {
+      regCount.textContent = regBio.value.length + "/150";
+    });
+
+    function toggleRegPassword() {
+      const pwd = document.getElementById("reg-password");
+      pwd.type = (pwd.type === "password") ? "text" : "password";
+    }
+
+    document.getElementById("registration").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Registration Submitted!");
+    });
+
+    // jQuery Exercises
+    $(document).ready(function() {
+      // Exercise 10: jQuery Submit Alert
+      $("#jq-submit").on("submit", function(e) {
+        e.preventDefault();
+        alert("Form submitted with jQuery!");
+      });
+
+      // Exercise 11: jQuery Show/Hide Password
+      $("#jq-toggle").on("change", function() {
+        $("#jq-pwd").attr("type", this.checked ? "text" : "password");
+      });
+
+      // Exercise 12: jQuery Live Character Count
+      $("#jq-bio").on("input", function() {
+        $("#jq-bio-count").text($(this).val().length + "/120");
+      });
+
+      // Exercise 13 + 14: jQuery Validation + Highlight Errors
+      $("#jq-validation").on("submit", function(e) {
+        e.preventDefault();
+        let valid = true;
+        $("#jq-validation input").each(function() {
+          if (!$(this).val()) {
+            $(this).addClass("error");
+            valid = false;
+          } else {
+            $(this).removeClass("error");
+          }
+        });
+        if (valid) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Please fill in all required fields.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
