@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>All HTML/CSS/JS Exercises - Combined</title>
+
+  <!-- Bootstrap CSS for the Bootstrap demo section -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* ---------- Global UI ---------- */
+    :root{
+      --accent:#3498db;
+      --muted:#666;
+      --card-bg:#fff;
+      --page-bg:#f5f7fb;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Arial, sans-serif; margin:18px; background:var(--page-bg); color:#222}
+    h1{margin:0 0 18px 0}
+    .container{max-width:1100px;margin:0 auto}
+    .section{background:var(--card-bg); padding:16px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(0,0,0,0.06); margin-bottom:18px}
+    .row{display:flex;flex-wrap:wrap;gap:12px}
+    .col{flex:1;min-width:220px}
+    pre{background:#f0f2f5;padding:10px;border-radius:8px;overflow:auto}
+    label{font-weight:600;display:block;margin-top:8px}
+    input,textarea,select,button{font-family:inherit}
+    button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button:hover{opacity:.95}
+    small{color:var(--muted)}
+
+    /* ---------- Specific components for exercises ---------- */
+    img.sample{width:200px;border-radius:10px}
+    table.basic{border-collapse:collapse;width:100%;max-width:520px}
+    table.basic th, table.basic td{border:1px solid #ccc;padding:8px;text-align:left}
+    .login-box{width:320px;padding:18px;background:#fff;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+    .login-box h2{text-align:center;margin:0 0 12px}
+    .login-box input{width:100%;padding:8px;margin:8px 0;border-radius:6px;border:1px solid #ccc}
+    .login-box .row {display:flex;align-items:center}
+    .card-sample{border:1px solid #e0e0e0;padding:14px;border-radius:8px;background:#fff}
+
+    /* modal */
+    .modal-sim{display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.45)}
+    .modal-sim .panel{background:#fff;padding:18px;border-radius:8px;max-width:90%;width:420px}
+
+    /* grid flex */
+    .flex-row{display:flex;gap:12px}
+    .flex-row .col{flex:1;background:linear-gradient(180deg,#eaf4ff,#ffffff);padding:12px;border-radius:8px}
+
+    /* gallery */
+    .gallery{display:flex;flex-wrap:wrap;gap:6px}
+    .gallery img{width:30%;border-radius:6px}
+
+    /* small helpers */
+    .muted{color:#666;font-size:0.9em}
+    .hr{height:1px;background:#e6e6e6;margin:12px 0;border-radius:2px}
+    .example{padding:10px;border-radius:8px;background:#fbfcff;border:1px solid #eef3ff}
+    .error{border:2px solid #e74c3c;background:#fff0f0}
+    .char-count{font-size:0.85em;color:#666;margin-top:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Combined HTML / CSS / JS Exercises</h1>
+
+    <!-- =================== HTML Basics (1-40) =================== -->
+    <div class="section">
+      <h3>HTML Basics — headings, text, lists, image, links, table</h3>
+
+      <div class="row">
+        <div class="col example">
+          <!-- 1-6: Basic skeleton content (displayed inside page) -->
+          <h1>Enoch Andrew Querol</h1> <!-- updated name -->
+          <h2>About Me</h2>
+          <p>Hello! My name is Enoch Andrew Querol and I love web development.<br>I also enjoy photography.</p>
+          <hr>
+          <p>My name is <b>Enoch Andrew Querol</b>. I enjoy <i>painting</i> and I am a <u>web developer</u>.</p>
+        </div>
+
+        <div class="col example">
+          <h4>Favorite Foods</h4>
+          <ol>
+            <li>Pizza</li><li>Sushi</li><li>Adobo</li>
+          </ol>
+          <h4>Hobbies</h4>
+          <ul>
+            <li>Coding</li><li>Photography</li><li>Gaming</li>
+          </ul>
+        </div>
+
+        <div class="col example">
+          <img class="sample" src="https://via.placeholder.com/200x200.png?text=My+Photo" alt="My Photo">
+          <p><a href="https://www.google.com" target="_blank">Visit Google</a></p>
+          <p><a href="mailto:querolenoch@gmail.com">Send me an Email</a></p> <!-- updated email -->
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <!-- 16 Table -->
+      <div class="example">
+        <h4>Simple Table (2x2)</h4>
+        <table class="basic">
+          <tr><td>Name</td><td>Age</td></tr>
+          <tr><td>Enoch Andrew Querol</td><td>20</td></tr> <!-- updated name -->
+        </table>
+      </div>
+    </div>
+
+    <!-- =================== (Rest of file unchanged, just sample name/email above modified) =================== -->
+
+    <footer style="text-align:center;margin-top:18px;color:#666">
+      Combined exercises file — created from HTML Exercises Guide (Customized for Enoch Andrew Querol).
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
