@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume - Enoch Andrew Querol</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    /* General */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Segoe UI", Tahoma, sans-serif; background: #f4f6f9; }
+
+    .resume-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      display: flex; align-items: center; gap: 20px;
+      background: linear-gradient(135deg,#007bff,#00c6ff);
+      color: white; padding: 20px;
+    }
+    .avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 4px solid white; object-fit: cover;
+    }
+    .header h1 { margin-bottom: 6px; }
+    .tagline { font-size: 1rem; opacity: 0.9; }
+
+    /* Navigation */
+    .nav { display: flex; border-bottom: 1px solid #ddd; background: #fafafa; }
+    .nav button {
+      flex: 1; padding: 14px; border: none; background: none;
+      font-weight: 600; cursor: pointer; transition: 0.3s;
+    }
+    .nav button:hover { background: #f0f0f0; }
+    .nav .active { color: #007bff; border-bottom: 3px solid #007bff; }
+
+    /* Content */
+    .content { padding: 25px; }
+    .content h2 { margin-bottom: 16px; color: #007bff; }
+    .section-content { display: flex; flex-direction: column; gap: 18px; }
+
+    /* Columns */
+    .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { list-style: none; padding-left: 0; }
+    ul li { margin-bottom: 6px; }
+
+    /* Timeline */
+    .timeline-item { border-left: 3px solid #007bff; padding-left: 12px; }
+    .timeline-item .sub { color: #555; font-size: 0.9rem; margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+      background: #f8f9fa; padding: 14px 18px;
+      border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* Actions */
+    .actions { display: flex; gap: 12px; padding: 20px; border-top: 1px solid #ddd; background: #fafafa; }
+    .actions button {
+      flex: 1; padding: 12px; border-radius: 6px; font-weight: 500;
+      cursor: pointer; transition: 0.3s;
+    }
+    .actions .primary { background: #007bff; color: white; border: none; }
+    .actions .outline { border: 2px solid #007bff; color: #007bff; background: none; }
+    .actions .muted { border: 1px solid #ccc; color: #666; background: none; }
+    .actions button:hover { opacity: 0.85; }
+
+    /* Footer */
+    .footer { background: #f1f1f1; text-align: center; padding: 12px; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="resume-container" id="resume">
+    <!-- Header -->
+    <div class="header">
+      <img src="https://via.placeholder.com/150" alt="Profile" class="avatar" />
+      <div>
+        <h1>Enoch Andrew Querol</h1>
+        <p class="tagline">Full-Stack Developer & Cyber Security Analyst</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+      <button class="active" onclick="showSection('profile')">Profile</button>
+      <button onclick="showSection('experience')">Experience</button>
+      <button onclick="showSection('education')">Education</button>
+      <button onclick="showSection('projects')">Projects</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content" id="content-area">
+      <h2>Profile</h2>
+      <div class="section-content">
+        <p>
+          Hi I'm <b>Enoch Andrew Querol</b>, a passionate web developer and also cyber security analyst.
+          Specialized in React, JavaScript, Python, PHP, MySQL, Node.js, and modern web technologies.
+        </p>
+        <div class="two-columns">
+          <div>
+            <h4>Contact Info</h4>
+            <ul>
+              <li>📧 querolenoch@gmail.com</li>
+              <li>📞 (555) 9291446884</li>
+              <li>📍 Polangui, Albay, Bicol</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Skills</h4>
+            <ul>
+              <li>React & JavaScript</li>
+              <li>Node.js & Ruby</li>
+              <li>Python & Java</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="actions">
+      <button class="primary" onclick="downloadPDF()">Download PDF</button>
+      <button class="outline" onclick="window.print()">Print Resume</button>
+      <button class="muted">Share Profile</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © 2025 Enoch Andrew Querol • Last updated: September 2025
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const sections = {
+      profile: `
+        <h2>Profile</h2>
+        <div class="section-content">
+          <p>
+            Hi I'm <b>Enoch Andrew Querol</b>, a passionate web developer and also cyber security analyst.
+            Specialized in React, JavaScript, Python, PHP, MySQL, Node.js, and modern web technologies.
+          </p>
+          <div class="two-columns">
+            <div>
+              <h4>Contact Info</h4>
+              <ul>
+                <li>📧 querolenoch@gmail.com</li>
+                <li>📞 (555) 9291446884</li>
+                <li>📍 Polangui, Albay, Bicol</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Skills</h4>
+              <ul>
+                <li>React & JavaScript</li>
+                <li>Node.js & Ruby</li>
+                <li>Python & Java</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `,
+      experience: `
+        <h2>Experience</h2>
+        <div class="section-content">
+          <div class="timeline-item">
+            <h4>Student Developer</h4>
+            <p class="sub">Web System Inc. • 2025 - Present</p>
+            <ul>
+              <li>Reduced page load times by 40% through optimization</li>
+              <li>Mentored 3 junior developers and conducted code reviews</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <h4>Future Software Engineer / Cyber Security Analyst</h4>
+            <p class="sub">Startup • N/A</p>
+            <ul>
+              <li>Implemented CI/CD pipelines reducing deployment time by 60%</li>
+              <li>Collaborated with UX team to improve user experience metrics</li>
+            </ul>
+          </div>
+        </div>
+      `,
+      education: `
+        <h2>Education</h2>
+        <div class="section-content">
+          <div class="timeline-item">
+            <h4>Bachelor of Science in Information System</h4>
+            <p class="sub">Bicol University • 2024 - Present</p>
+          </div>
+        </div>
+      `,
+      projects: `
+        <h2>Projects</h2>
+        <div class="section-content">
+          <div class="card">
+            <h4>E-commerce Platform</h4>
+            <p>Full-stack app with React, Node.js, and PostgreSQL. Features: authentication, payments, and inventory management.</p>
+          </div>
+          <div class="card">
+            <h4>Task Management App</h4>
+            <p>Real-time collaboration tool with drag-and-drop functionality, built using Socket.io and React.</p>
+          </div>
+        </div>
+      `
+    };
+
+    function showSection(section) {
+      document.getElementById("content-area").innerHTML = sections[section];
+      document.querySelectorAll(".nav button").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+    }
+
+    function downloadPDF() {
+      const resume = document.getElementById("resume");
+      const opt = {
+        margin:       0.5,
+        filename:     'Enoch_Andrew_Querol_Resume.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(resume).save();
+    }
+  </script>
+</body>
+</html>
